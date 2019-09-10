@@ -1,0 +1,155 @@
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+
+
+
+<!-- jQuery library -->
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+
+
+<!-- Latest compiled JavaScript -->
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Project Billing</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
+</head>
+<body>
+
+  
+
+        <!-- <nav class="navbar navbar-default">
+            <a class="navbar-brand" href="#">Navbar</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+              <ul class="navbar-nav">
+                <li class="nav-item active">
+                  <a class="nav-link" routerLink="/projectconfig">Project Config <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link"  routerLink="/developerallocation">Developer Allocation</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" routerLink="/billing">Billing</a>
+                </li>
+               
+              </ul>
+            </div>
+          </nav> -->
+    
+          
+    
+          <nav class="navbar navbar-default">
+              <div class="container-fluid">
+                <div class="navbar-header">
+                 
+                </div>
+                <ul class="nav navbar-nav">
+                
+                  <li><a  routerLink="/addattendance">Add Attendance here</a></li>
+                  
+                </ul>
+              </div>
+            </nav>
+  
+
+<div class="jumbotron" align="center">
+
+<form [formGroup]="DeveloperAttendanceForm" (ngSubmit) ="onDeveloperAttendance()">
+
+  <table>
+<tr>
+<td>
+  <label>Developer</label>
+</td>
+<td>
+
+
+      <select formControlName="devId" (change) ="OnSelectedDevId($event)">
+
+          <option *ngFor ="let x of  developers" value={{x.id}}>
+        
+           {{x.name}}
+        
+          </option>
+        
+        </select>
+      </td>
+      </tr>
+
+ 
+ 
+      <tr>
+<td>
+  <label for="month">Month</label>
+  </td>
+  <td>
+
+  <input type="text" #ref formControlName="month" id="month">
+
+  </td>
+
+</tr>
+
+
+<tr>
+  <td>
+  <label for="year">Year</label>
+</td>
+<td>
+
+  <input type="text" #ref formControlName="year" id="year">
+  </td>
+
+  </tr>
+<tr>
+  <td>
+ 
+      <label for="year">Half Day</label>
+    </td>
+    <td>
+    
+      <input type="text" #ref formControlName="HalfDay" id="HalfDay">
+    </td>
+    
+    </tr>
+    <tr>
+         <td><label for="year">Full Day</label></td> 
+        
+        <td>  <input type="text" #ref formControlName="FullDay" id="FullDay"></td>
+</tr>
+
+<tr>
+<td>
+  <label for="totalnoofhourpresent">TotalnoofhoursPresent</label></td>
+  <td>
+
+  <input type="number"  #ref formControlName="totalnoofhourpresent" id="totalnoofhourpresent" (click)="totalnum()">
+</td>
+
+
+</tr>
+
+<tr>
+
+  <button type = "submit" >submit</button>
+</tr>
+</table>
+
+  </form>​
+
+</div>​

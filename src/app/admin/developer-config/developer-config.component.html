@@ -1,0 +1,98 @@
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <div class="navbar-header">
+       
+      </div>
+      <ul class="nav navbar-nav">
+      
+        <li><a routerLink="/projectconfig">Project Config</a></li>
+        <li><a routerLink="/developerallocation">Developer Allocation</a></li>
+        <li><a  routerLink="/billing">Billing</a></li>
+      </ul>
+    </div>
+  </nav>
+
+
+
+
+
+
+
+
+
+
+<div class="jumbotron" align="center">
+  
+
+  <form [formGroup]="DeveloperAllocationForm" (ngSubmit) ="onDeveloperConfig()">
+      <table>
+   <tr>
+
+    
+
+    <p>Developer Allocation</p>
+  </tr>
+
+      <tr>
+
+     
+
+
+          <td>
+            <label   for="id">Configurations</label>
+          </td>
+          <td>
+            <select formControlName="configid" (change) ="OnSelectedDevId($event)">
+          
+                <option *ngFor ="let x of  configs" value={{x.configid}}>
+              
+                 {{x.project.projectname}},{{x.location}},{{x.perHourBilling}},{{x.role.roleName}}
+              
+                </option>
+              
+              </select>
+              </td>
+            
+            </tr>
+
+          
+
+    
+
+    
+
+        <tr>
+
+          <td>
+
+            <label   for="configname">Developer </label>
+            </td>
+            <td>
+            <select formControlName="id" (change) ="OnSelectedConfigId($event)">
+          
+                <option *ngFor ="let x of  developers" value={{x.id}}>
+              
+                 {{x.name}}
+              
+                </option>
+              
+              </select>
+            
+            </td>
+          </tr>
+          
+
+    
+
+  
+
+    <tr>
+
+    <button class="btn btn-success"  type = "submit" >submit</button>
+  </tr>
+</table>
+
+    </form>​
+   
+
+  </div>

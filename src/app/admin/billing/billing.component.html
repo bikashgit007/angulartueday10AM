@@ -1,0 +1,45 @@
+<div class="jumbotron">
+    <form [formGroup]="BillingForm" (ngSubmit) ="onBilling()">
+
+        <label   for="id">Select Developer</label>
+        <select formControlName="id" (change) ="OnSelectedDeveloper($event)">
+
+            <option *ngFor ="let x of developer" value={{x.id}}>
+          
+             {{x.name}}
+          
+            </option>
+          
+          </select>  
+        <br>
+        <label   for="month">Select Developer</label>
+        <select formControlName="month" (change) ="OnSelectedDeveloper($event)">
+
+            <option *ngFor ="let x of month" value={{x}}>
+          
+             {{x}}
+          
+            </option>
+          
+          </select>  
+        <br>
+        
+
+        <select formControlName="year" (change) ="OnSelectedDeveloper($event)">
+
+            <option *ngFor ="let x of year" value={{x}}>
+          
+             {{x}}
+          
+            </option>
+          
+          </select>  
+
+
+
+          <label for="Billing">Billing Is</label>
+          <input type="text" />
+        <br>
+          <button type="submit" value="Submit">Submit</button>
+      </form>
+</div>
